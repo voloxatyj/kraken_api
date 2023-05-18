@@ -16,6 +16,17 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "noFallthroughCasesInSwitch": false,
+    "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
+    "moduleResolution": "node",
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+  },
+  "exclude": ["node_modules"],
+  "include": ["./src/**/*.ts"]
 }
