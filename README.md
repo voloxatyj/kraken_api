@@ -35,7 +35,9 @@ $ npm install
 
 ```bash
 # development
-$ npm run start
+$ yarn
+$ docker-compose up
+$ yarn dev
 
 # watch mode
 $ npm run start:dev
