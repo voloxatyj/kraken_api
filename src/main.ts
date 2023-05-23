@@ -9,20 +9,20 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const logger = new Logger('Server Instance');
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  app.setGlobalPrefix('api');
 
   const configService = app.get(ConfigService);
-  const __prod__ = configService.get('ENVIRONMENT') === 'production';
+  // const __prod__ = configService.get('ENVIRONMENT') === 'production';
 
   /*SWAGGER*/
   const config = new DocumentBuilder()
-    .addCookieAuth()
     .setTitle('KRAKEN')
     .setDescription('The KRAKEN API Documentation')
     .setVersion('0.0.1')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('docs', app, document);
 
   // Log Env
   logger.log(`
