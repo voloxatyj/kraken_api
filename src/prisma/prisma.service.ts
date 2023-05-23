@@ -1,6 +1,5 @@
 import { INestApplication, Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
   private logger = new Logger(PrismaService.name);
@@ -13,7 +12,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
                   🚀[database]: Create connection to kraken_db successfully
                ################################################################`);
     } catch (error) {
-      this.logger.log(error);
+      this.logger.error(error);
     }
   }
 
