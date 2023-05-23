@@ -15,14 +15,40 @@ model User {
   firtsName String?  
   lastName  String?  
   email     String   @unique
-  hash      String? 
+  phone     String   @unique
+  hash      String?
+  count     Int
+  typeCount Crypto   
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  orders    Order[]
+  orders    Orders[]
+  currency  Currency?
+  @@map("users")
 }
 
-model Order {
+model Orders {
   id        Int      @id @unique @default(autoincrement())
-  userId    Int
-  user    User     @relation(fields: [userId], references: [id])
+  userId    Int      @unique
+  user      User     @relation(fields: [userId], references: [id])
+  @@map("orders")
+}
+
+model Currency {
+  id        Int      @id @unique @default(autoincrement())
+  USD       Int
+  EUR       Int 
+  CAD       Int
+  JPY       Int
+  GBP       Int
+  CHF       Int
+  AUD       Int
+  userId    Int      @unique
+  user      User     @relation(fields: [userId], references: [id])
+  @@map("currency")
+}
+
+enum Crypto {
+  BTC
+  BCH
+  ETH
 }
