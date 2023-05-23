@@ -5,4 +5,5 @@ export default () => ({
   environment: process.env.ENVIRONMENT,
   api_key: process.env.API_KEY,
   private_key: process.env.PRIVATE_KEY,
+  amount_users: process.env.AMOUNT_USERS,
 });
